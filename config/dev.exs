@@ -25,7 +25,8 @@ config :flashcards, FlashcardsWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "oEOytn5BlksAq37tsY0C4/R2yoS2+FzHFWTWA8UgQ6M641Il0QZc0AIz1Ne63UEq",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:flashcards, ~w(--sourcemap=inline --watch)]},
+    node: ["build.js", "--watch", cd: Path.expand("../assets", __DIR__)],
+    # esbuild: {Esbuild, :install_and_run, [:flashcards, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:flashcards, ~w(--watch)]}
   ]
 

@@ -7,7 +7,7 @@ defmodule FlashcardsWeb.HomeLive do
 
   def render(assigns) do
     ~H"""
-      Welcome
+    Welcome
     """
   end
 end

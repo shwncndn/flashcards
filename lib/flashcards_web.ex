@@ -86,6 +86,7 @@ defmodule FlashcardsWeb do
       # Core UI components and translation
       import FlashcardsWeb.CoreComponents
       import FlashcardsWeb.Gettext
+      import LiveSvelte
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS

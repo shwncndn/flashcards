@@ -58,7 +58,8 @@ defmodule Flashcards.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:live_svelte, "~> 0.13.2"}
     ]
   end
 
@@ -70,15 +71,15 @@ defmodule Flashcards.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],
+      setup: ["deps.get", "ecto.setup", "npm install --prefix assets"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
       "assets.build": ["tailwind flashcards", "esbuild flashcards"],
       "assets.deploy": [
-        "tailwind flashcards --minify",
-        "esbuild flashcards --minify",
+        "tailwind default --minify",
+        "node build.js --deploy --prefix assets",
         "phx.digest"
       ]
     ]

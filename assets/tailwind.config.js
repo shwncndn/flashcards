@@ -9,12 +9,13 @@ module.exports = {
   content: [
     "./js/**/*.js",
     "../lib/flashcards_web.ex",
-    "../lib/flashcards_web/**/*.*ex"
+    "../lib/flashcards_web/**/*.*ex",
+    "./svelte/**/*.svelte"
   ],
   theme: {
     extend: {
       colors: {
-        elixir: "#7154a5", ruby: "#cc332d"
+        elixir: "#7154a5", ruby: "#cc332d", phoenix: "#FD4F00"
       }
     },
   },
